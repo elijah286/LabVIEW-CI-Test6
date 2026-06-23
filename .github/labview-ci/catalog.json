@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "3.46.14",
+  "version": "3.46.19",
   "name": "LabVIEW CI",
   "description": "Portable, repo-agnostic CI/CD capabilities for LabVIEW repositories: mass compile, VI Analyzer, VIDiff comparison reports, VI snapshots / VI Browser, and a status dashboard. Driven entirely by this catalog so the configurator UI and the installer stay in sync and new capabilities are a one-entry change.",
   "installPause": {
@@ -11,6 +11,64 @@
   "history": {
     "comment": "Release notes for the tooling, newest first. `version` (above) is the CURRENT published release and MUST equal releases[0].version. The dashboard version badge and the What's New dialog read these notes to tell a consumer what changed between the version they run and the latest this source repo publishes. Each published version should also be tagged v<version> in this repo so consumers can pin an update to a specific release.",
     "releases": [
+      {
+        "version": "3.46.19",
+        "date": "2026-06-23",
+        "title": "Install no longer implies a long container build",
+        "type": "patch",
+        "summary": "Removes the 5-90 minute estimates from the Apply page. Installing now only copies the shared LabVIEW container into the repository's registry (about a minute) and never bakes project dependencies. The capability chooser explains that VIPC/Dragon dependencies are applied later via a separate, opt-in action rather than during install.",
+        "highlights": [
+          "Drops the 60-90 / 5-90 minute install-time warnings and confirmation prompts.",
+          "Reframes the install plan step as a quick container copy, not a long build.",
+          "Clarifies that project dependency baking is a separate, opt-in operation after install."
+        ]
+      },
+      {
+        "version": "3.46.18",
+        "date": "2026-06-23",
+        "title": "Use crane for the registry-native base copy",
+        "type": "patch",
+        "summary": "The Windows runner does not ship docker buildx, so the registry-native copy now uses crane (go-containerregistry), a small self-contained binary. A no-dependency repository copies the public LCWC base image into its own GHCR worker package via crane copy + crane tag, with cross-repo blob mounting, so the multi-gigabyte layers are never downloaded to or re-uploaded from the runner. The base digest is read with crane digest (no pull).",
+        "highlights": [
+          "Downloads crane and copies the base image server-side instead of relying on docker buildx (absent on the Windows runner).",
+          "crane copy + crane tag publishes all worker tags by blob-mounting layers within the same GHCR owner.",
+          "No-dependency worker images are ready in a couple of minutes instead of fifteen-plus."
+        ]
+      },
+      {
+        "version": "3.46.17",
+        "date": "2026-06-23",
+        "title": "Read the base digest without the unsupported buildx flag",
+        "type": "patch",
+        "summary": "The registry-native base copy resolved the base image digest with 'docker buildx imagetools inspect --format', but the buildx shipped on the Windows runner does not support the --format flag, so the Prepare base step failed instantly. It now parses the digest from the standard inspect output and treats a missing digest as best-effort, so the fast no-download copy path proceeds.",
+        "highlights": [
+          "Parses the base image digest from the default imagetools inspect output (no --format flag).",
+          "Treats a missing digest as best-effort so the registry-native copy still runs."
+        ]
+      },
+      {
+        "version": "3.46.16",
+        "date": "2026-06-23",
+        "title": "Registry-native base copy makes no-dependency installs fast",
+        "type": "patch",
+        "summary": "A fresh repository with no selected VIPC dependencies now copies the public LCWC base image into its own GHCR worker package at the registry level (docker buildx imagetools create) instead of pulling the multi-gigabyte image down to the runner and pushing it back up. The base digest is resolved with imagetools inspect (no pull), and the worker manifest skips the container run on the copy path. A no-dependency worker is now ready in a couple of minutes instead of fifteen-plus.",
+        "highlights": [
+          "Copies the base image server-side with imagetools create, so the runner never transfers the multi-gigabyte layers.",
+          "Resolves the base digest via imagetools inspect with no docker pull.",
+          "Skips the nipkg container run for seed-only copies to avoid an extra multi-gigabyte pull."
+        ]
+      },
+      {
+        "version": "3.46.15",
+        "date": "2026-06-23",
+        "title": "Clients copy the base image instead of rebuilding it",
+        "type": "patch",
+        "summary": "Fixes the Windows worker build so fresh client repositories actually copy the public LCWC base image instead of rebuilding their own. The previous release detected the source repository from a hardcoded slug in the workflow, but the installer's branding substitution rewrote that slug to the client's own repository, so every client incorrectly thought it was the source and rebuilt the whole base (the slow path the base-copy design is meant to avoid). The source repository is now derived at runtime from the base image name, which the substitution cannot rewrite.",
+        "highlights": [
+          "Derives the source repository from the LCWC base image name so the install-time branding rewrite can't flip a client into source mode.",
+          "No-dependency client repositories now reliably copy the published base image in seconds instead of rebuilding it."
+        ]
+      },
       {
         "version": "3.46.14",
         "date": "2026-06-23",
