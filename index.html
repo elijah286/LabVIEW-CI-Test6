@@ -1051,8 +1051,8 @@
     // activities to queue. Reuses dispatchCells (oldest-first, snapshots as one
     // backfill) + the same token and optimistic-queued bridge as every other
     // dispatch on the dashboard.
-    var HIST = [{"sha": "e4588ac36bb3862d632b2d0a3ab5bf45301864d6", "short": "e4588ac", "msg": "Adding code", "snapshots2": {"windows": {"have": 0, "total": 44}, "linux": {"have": 0, "total": 44}}}];                        // [{sha, short, msg}] newest-first (project revisions)
-    var RAN = {};                     // {cap:1} caps with a result/active run somewhere in history
+    var HIST = [{"sha": "e4588ac36bb3862d632b2d0a3ab5bf45301864d6", "short": "e4588ac", "msg": "Adding code", "snapshots2": {"windows": {"have": 0, "total": 44}, "linux": {"have": 44, "total": 44}}}];                        // [{sha, short, msg}] newest-first (project revisions)
+    var RAN = {"snapshots2": 1};                     // {cap:1} caps with a result/active run somewhere in history
     var CAP_META = {                            // label + sub for each known capability
       'snapshots':   ['VI Snapshots', 'Renders every changed VI (classic HTML snapshots)'],
       'snapshots2':  ['VI Browser 2.0 Snapshots', 'Renders position-aware snapshots for the VI Browser 2.0 view'],
@@ -1453,7 +1453,7 @@
   </script>
   <main class="lvci-main">
   <h1>CI Dashboard — LabVIEW-CI-Test6</h1>
-  <div class="sub">Last updated: 2026-06-23 22:49 UTC &nbsp;|&nbsp; Auto-refreshes every 15 min</div>
+  <div class="sub">Last updated: 2026-06-23 23:28 UTC &nbsp;|&nbsp; Auto-refreshes every 15 min</div>
   <div class="nav">
     <a href="https://github.com/elijah286/LabVIEW-CI-Test6">GitHub</a>
     <a href="https://github.com/elijah286/LabVIEW-CI-Test6/actions">Actions</a>
@@ -1497,6 +1497,78 @@
       </tr>
     </thead>
     <tbody>
+    <tr data-project="false" data-deponly="false">
+      <td class="cidash-rev">
+        <div class="cidash-rev-wrap">
+          <span class="cidash-avatar" style="background:hsl(66,42%,45%)" title="Elijah Kerry" aria-hidden="true">E</span>
+          <div class="cidash-rev-body">
+            <div class="cidash-rev-line1"><a href="https://elijah286.github.io/LabVIEW-CI-Test6/vi-snapshots/index.html?sha=bbfdb53b4c608ec64dd7d6e884c9af7be1f86691" class="cidash-rev-msg" title="test: apply v3.46.18 (crane registry copy)">test: apply v3.46.18 (crane registry copy)</a></div>
+            <div class="cidash-rev-meta"><a href="https://elijah286.github.io/LabVIEW-CI-Test6/vi-snapshots/index.html?sha=bbfdb53b4c608ec64dd7d6e884c9af7be1f86691" class="cidash-rev-sha" title="Browse this revision's VIs in the VI Browser">bbfdb53</a><span class="cidash-rev-dot">&middot;</span>Elijah Kerry<span class="cidash-rev-dot">&middot;</span>2026-06-23</div>
+          </div>
+        </div>
+      </td>
+      <td style="text-align:center;color:var(--fg-muted);font-size:.75em">—</td>
+      <td style="text-align:center;color:var(--fg-muted);font-size:.75em">—</td>
+      <td style="text-align:center;color:var(--fg-muted);font-size:.75em">—</td>
+      <td style="text-align:center;color:var(--fg-muted);font-size:.75em">—</td>
+      <td style="text-align:center;color:var(--fg-muted);font-size:.75em">—</td>
+      <td style="text-align:center;color:var(--fg-muted);font-size:.75em">—</td>
+    </tr>
+
+    <tr data-project="false" data-deponly="false">
+      <td class="cidash-rev">
+        <div class="cidash-rev-wrap">
+          <span class="cidash-avatar" style="background:hsl(66,42%,45%)" title="Elijah Kerry" aria-hidden="true">E</span>
+          <div class="cidash-rev-body">
+            <div class="cidash-rev-line1"><a href="https://elijah286.github.io/LabVIEW-CI-Test6/vi-snapshots/index.html?sha=0a4630453ef91d5bb7a09f15fd256ee6b6efc559" class="cidash-rev-msg" title="test: apply v3.46.17 (parse digest, registry copy)">test: apply v3.46.17 (parse digest, registry copy)</a></div>
+            <div class="cidash-rev-meta"><a href="https://elijah286.github.io/LabVIEW-CI-Test6/vi-snapshots/index.html?sha=0a4630453ef91d5bb7a09f15fd256ee6b6efc559" class="cidash-rev-sha" title="Browse this revision's VIs in the VI Browser">0a46304</a><span class="cidash-rev-dot">&middot;</span>Elijah Kerry<span class="cidash-rev-dot">&middot;</span>2026-06-23</div>
+          </div>
+        </div>
+      </td>
+      <td style="text-align:center;color:var(--fg-muted);font-size:.75em">—</td>
+      <td style="text-align:center;color:var(--fg-muted);font-size:.75em">—</td>
+      <td style="text-align:center;color:var(--fg-muted);font-size:.75em">—</td>
+      <td style="text-align:center;color:var(--fg-muted);font-size:.75em">—</td>
+      <td style="text-align:center;color:var(--fg-muted);font-size:.75em">—</td>
+      <td style="text-align:center;color:var(--fg-muted);font-size:.75em">—</td>
+    </tr>
+
+    <tr data-project="false" data-deponly="false">
+      <td class="cidash-rev">
+        <div class="cidash-rev-wrap">
+          <span class="cidash-avatar" style="background:hsl(66,42%,45%)" title="Elijah Kerry" aria-hidden="true">E</span>
+          <div class="cidash-rev-body">
+            <div class="cidash-rev-line1"><a href="https://elijah286.github.io/LabVIEW-CI-Test6/vi-snapshots/index.html?sha=4ccca97e44e68a9f408bde56954464cec0388505" class="cidash-rev-msg" title="test: apply v3.46.16 (registry-native base copy)">test: apply v3.46.16 (registry-native base copy)</a></div>
+            <div class="cidash-rev-meta"><a href="https://elijah286.github.io/LabVIEW-CI-Test6/vi-snapshots/index.html?sha=4ccca97e44e68a9f408bde56954464cec0388505" class="cidash-rev-sha" title="Browse this revision's VIs in the VI Browser">4ccca97</a><span class="cidash-rev-dot">&middot;</span>Elijah Kerry<span class="cidash-rev-dot">&middot;</span>2026-06-23</div>
+          </div>
+        </div>
+      </td>
+      <td style="text-align:center;color:var(--fg-muted);font-size:.75em">—</td>
+      <td style="text-align:center;color:var(--fg-muted);font-size:.75em">—</td>
+      <td style="text-align:center;color:var(--fg-muted);font-size:.75em">—</td>
+      <td style="text-align:center;color:var(--fg-muted);font-size:.75em">—</td>
+      <td style="text-align:center;color:var(--fg-muted);font-size:.75em">—</td>
+      <td style="text-align:center;color:var(--fg-muted);font-size:.75em">—</td>
+    </tr>
+
+    <tr data-project="false" data-deponly="false">
+      <td class="cidash-rev">
+        <div class="cidash-rev-wrap">
+          <span class="cidash-avatar" style="background:hsl(66,42%,45%)" title="Elijah Kerry" aria-hidden="true">E</span>
+          <div class="cidash-rev-body">
+            <div class="cidash-rev-line1"><a href="https://elijah286.github.io/LabVIEW-CI-Test6/vi-snapshots/index.html?sha=25a84653cf9fe6034e8df059626ad8046102c5e4" class="cidash-rev-msg" title="test: apply v3.46.15 worker build (derive source from base image)">test: apply v3.46.15 worker build (derive source from base image)</a></div>
+            <div class="cidash-rev-meta"><a href="https://elijah286.github.io/LabVIEW-CI-Test6/vi-snapshots/index.html?sha=25a84653cf9fe6034e8df059626ad8046102c5e4" class="cidash-rev-sha" title="Browse this revision's VIs in the VI Browser">25a8465</a><span class="cidash-rev-dot">&middot;</span>Elijah Kerry<span class="cidash-rev-dot">&middot;</span>2026-06-23</div>
+          </div>
+        </div>
+      </td>
+      <td style="text-align:center;color:var(--fg-muted);font-size:.75em">—</td>
+      <td style="text-align:center;color:var(--fg-muted);font-size:.75em">—</td>
+      <td style="text-align:center;color:var(--fg-muted);font-size:.75em">—</td>
+      <td style="text-align:center;color:var(--fg-muted);font-size:.75em">—</td>
+      <td style="text-align:center;color:var(--fg-muted);font-size:.75em">—</td>
+      <td style="text-align:center;color:var(--fg-muted);font-size:.75em">—</td>
+    </tr>
+
     <tr data-project="false" data-deponly="false">
       <td class="cidash-rev">
         <div class="cidash-rev-wrap">
