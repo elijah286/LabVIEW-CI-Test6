@@ -1051,8 +1051,8 @@
     // activities to queue. Reuses dispatchCells (oldest-first, snapshots as one
     // backfill) + the same token and optimistic-queued bridge as every other
     // dispatch on the dashboard.
-    var HIST = [{"sha": "e4588ac36bb3862d632b2d0a3ab5bf45301864d6", "short": "e4588ac", "msg": "Adding code", "snapshots2": {"windows": {"have": 0, "total": 44}, "linux": {"have": 0, "total": 44}}}];                        // [{sha, short, msg}] newest-first (project revisions)
-    var RAN = {};                     // {cap:1} caps with a result/active run somewhere in history
+    var HIST = [{"sha": "e4588ac36bb3862d632b2d0a3ab5bf45301864d6", "short": "e4588ac", "msg": "Adding code", "snapshots2": {"windows": {"have": 0, "total": 44}, "linux": {"have": 44, "total": 44}}}];                        // [{sha, short, msg}] newest-first (project revisions)
+    var RAN = {"snapshots2": 1};                     // {cap:1} caps with a result/active run somewhere in history
     var CAP_META = {                            // label + sub for each known capability
       'snapshots':   ['VI Snapshots', 'Renders every changed VI (classic HTML snapshots)'],
       'snapshots2':  ['VI Browser 2.0 Snapshots', 'Renders position-aware snapshots for the VI Browser 2.0 view'],
@@ -1453,7 +1453,7 @@
   </script>
   <main class="lvci-main">
   <h1>CI Dashboard — LabVIEW-CI-Test6</h1>
-  <div class="sub">Last updated: 2026-07-09 18:40 UTC &nbsp;|&nbsp; Auto-refreshes every 15 min</div>
+  <div class="sub">Last updated: 2026-07-09 19:34 UTC &nbsp;|&nbsp; Auto-refreshes every 15 min</div>
   <div class="nav">
     <a href="https://github.com/elijah286/LabVIEW-CI-Test6">GitHub</a>
     <a href="https://github.com/elijah286/LabVIEW-CI-Test6/actions">Actions</a>
